@@ -4,3 +4,6 @@ backgroundColor = "#F7F5F2"        # A soft, off-white
 secondaryBackgroundColor = "#E7E6E2" # A light, warm grey for sidebars
 textColor = "#3A3A3A"              # A dark charcoal for text
 font = "sans serif"
+
+[runner]
+python_version = "3.9"
