@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CKD Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #fce4ec);
+            padding: 40px;
+        }
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .hint {
+            font-size: 0.85em;
+            color: #777;
+            margin-bottom: 5px;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        button {
+            background: linear-gradient(to right, #42a5f5, #7e57c2);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(to right, #1e88e5, #6a1b9a);
+        }
+        .result {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 1.2em;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>CKD Prediction Form</h2>
+        <form method="POST" action="/predict">
+            {% for feature in features %}
+            <div class="form-group">
+                <label>{{ feature }}</label>
+                <div class="hint">
+                    {% if feature == 'Gender' %}
+                        Select Male or Female (Male = 1, Female = 0)
+                    {% elif feature == 'ProteinInUrine' %}
+                        Typical range: 0.03 – 3.0 mg/dL
+                    {% elif feature == 'MuscleCramps' %}
+                        Enter 0 for No, 1 for Yes
+                    {% elif feature == 'Itching' %}
+                        Enter 0 for No, 1 for Yes
+                    {% elif feature == 'FamilyHistoryHypertension' %}
+                        Enter 0 for No, 1 for Yes
+                    {% elif feature == 'FastingBloodSugar' %}
+                        Typical range: 70–130 mg/dL
+                    {% elif feature == 'HbA1c' %}
+                        Typical range: 4.0–6.5%
+                    {% elif feature == 'SystolicBP' %}
+                        Typical range: 90–140 mmHg
+                    {% elif feature == 'GFR' %}
+                        Normal: >90, CKD: <60
+                    {% elif feature == 'SerumCreatinine' %}
+                        Normal: 0.6–1.3 mg/dL
+                    {% elif feature == 'BUNLevels' %}
+                        Normal: 7–20 mg/dL
+                    {% endif %}
+                </div>
+
+                {% if feature == 'Gender' %}
+                    <select name="{{ feature }}" required>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+                {% elif feature in ['MuscleCramps', 'Itching', 'FamilyHistoryHypertension'] %}
+                    <select name="{{ feature }}" required>
+                        <option value="0">No (0)</option>
+                        <option value="1">Yes (1)</option>
+                    </select>
+                {% else %}
+                    <input type="number" step="any" name="{{ feature }}" required>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <strong>Result:</strong> {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
