@@ -8,3 +8,4 @@ joblib
 xgboost
 imblearn
 shap
+pickle
