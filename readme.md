@@ -40,19 +40,19 @@ This plot summarizes the importance of each feature in my model's predictions. T
 
 ## PROJECT STRUCTURE
 .
-├── .streamlit/
-│   └── config.toml           # Flask app theme
-├── assets/                   # Folder for images in this README
-├── notebooks/                
-│   └── ckd_analysis_and_training.ipynb # My complete analysis and training workflow
-├── templates/
-    └── index.html
-├── app.py
-├── requirements.txt          # All Python libraries used in the project
-├── README.md                 # This file
-├── Chronic_Kidney_Dsease_data.csv # The dataset I used
-├── features.pkl              # List of features used by the model
-└── xgb_model_reduced.pkl     # My final, best-performing model
+├── .streamlit/ <br>
+│   └── config.toml           # Flask app theme<br>
+├── assets/                   # Folder for images in this README <br>
+├── notebooks/                <br>
+│   └── ckd_analysis_and_training.ipynb # My complete analysis and training workflow<br>
+├── templates/<br>
+    └── index.html<br>
+├── app.py<br>
+├── requirements.txt          # All Python libraries used in the project<br>
+├── README.md                 # This file<br>
+├── Chronic_Kidney_Dsease_data.csv # The dataset I used<br>
+├── features.pkl              # List of features used by the model<br>
+└── xgb_model_reduced.pkl     # My final, best-performing model<br>
 
 
 
