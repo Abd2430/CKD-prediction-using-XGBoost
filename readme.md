@@ -25,8 +25,9 @@ I used XGBoost, a powerful gradient boosting algorithm, and performed hyperparam
 ## Model Interpretation: 
 To explain the model's decisions, I used SHAP (SHapley Additive exPlanations) to identify and visualize the most influential features.
 
-## Deployment: 
+# Deployment: 
 I deployed the final, best-performing model as an interactive web application using Streamlit community cloud, making it accessible to anyone.
+Link: https://ckd-prediction-using-xgboost-a8784wbfkpczxuxhgwu48p.streamlit.app/
 
 ## 📊 My Results & Analysis
 My analysis showed that XGBoost was the best model for this prediction task, consistently outperforming the other algorithms. I validated this with key visualizations:
