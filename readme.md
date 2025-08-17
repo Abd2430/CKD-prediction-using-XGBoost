@@ -5,7 +5,7 @@ I developed this project to build and deploy a machine learning model for predic
 The project follows a complete machine learning workflow, from data preprocessing to model training, evaluation, and deployment as an interactive web application using Flask.
 
 ## 🚀 App Overview
-I built this application to allow users to input various clinical parameters and receive an instant prediction of whether a patient is likely to have CKD. The app is hosted on Flask Community Cloud for public access.
+I built this application to allow users to input various clinical parameters and receive an instant prediction of whether a patient is likely to have CKD. The app is hosted on Hugging face spaces for public access.
 
 ## 🎯 My Contributions & Workflow
 Data Preprocessing: I handled imbalanced data by using SMOTE (Synthetic Minority Oversampling Technique), which was critical for ensuring the model could accurately predict both positive and negative cases.
@@ -26,7 +26,7 @@ I used XGBoost, a powerful gradient boosting algorithm, and performed hyperparam
 To explain the model's decisions, I used SHAP (SHapley Additive exPlanations) to identify and visualize the most influential features.
 
 ## Deployment: 
-I deployed the final, best-performing model as an interactive web application on Flask Community Cloud, making it accessible to anyone.
+I deployed the final, best-performing model as an interactive web application using flask on Hugging face spaces, making it accessible to anyone.
 
 ## 📊 My Results & Analysis
 My analysis showed that XGBoost was the best model for this prediction task, consistently outperforming the other algorithms. I validated this with key visualizations:
@@ -40,11 +40,14 @@ This plot summarizes the importance of each feature in my model's predictions. T
 
 ## PROJECT STRUCTURE
 .
-├── .Flask/
+├── .streamlit/
 │   └── config.toml           # Flask app theme
 ├── assets/                   # Folder for images in this README
 ├── notebooks/                
 │   └── ckd_analysis_and_training.ipynb # My complete analysis and training workflow
+├── templates/
+    └── index.html
+├── app.py
 ├── requirements.txt          # All Python libraries used in the project
 ├── README.md                 # This file
 ├── Chronic_Kidney_Dsease_data.csv # The dataset I used
@@ -52,16 +55,17 @@ This plot summarizes the importance of each feature in my model's predictions. T
 └── xgb_model_reduced.pkl     # My final, best-performing model
 
 
+
 ## 🛠️ How to Run the App Locally
 To run this app on your own machine, follow these simple steps:
 
 1. Clone the repository:
-   git clone https://github.com/Abd2430/ckd-prediction/
+   git clone https://github.com/Abd2430/CKD-prediction-using-XGBoost
    cd your-repository
 
 2. Install dependencies:
    pip install -r requirements.txt
 
 3. Run the Flask app:
-   Flask run Flask_app.py
+   python app.py
 
